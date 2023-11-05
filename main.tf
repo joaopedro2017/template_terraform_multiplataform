@@ -27,6 +27,6 @@ locals {
   # Se Grupo de Recurso Estiver com o valor Criar (eles serao feitos para cada recurso), outro valor qq sera ja provisionado,
   ## CRIAR_NOVO
   GrupoRecurso = "CRIAR_NOVO"
-  Regiao       = "<Regiao>"
+  Regiao       = "us-east-2"
 }
 
