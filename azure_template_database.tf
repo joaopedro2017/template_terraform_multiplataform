@@ -12,8 +12,8 @@ module "azure_database" {
     TamanhoArmazenamentoMb = 5120
     UsuarioAdministrador   = "acctestun"
     SenhaAdministrador     = "H@Sh1CoR3!"
-    GrupoRecurso           = local.GrupoRecurso
-    Regiao                 = local.Regiao
+    GrupoRecurso           = local.AzureGrupoRecurso
+    Regiao                 = local.AzureRegiao
   }
 
   ServidorMySQL = {
@@ -27,8 +27,8 @@ module "azure_database" {
     TamanhoArmazenamentoMb = 5120
     UsuarioAdministrador   = "acctestun"
     SenhaAdministrador     = "H@Sh1CoR3!"
-    GrupoRecurso           = local.GrupoRecurso
-    Regiao                 = local.Regiao
+    GrupoRecurso           = local.AzureGrupoRecurso
+    Regiao                 = local.AzureRegiao
   }
 
   ServidorMariaDB = {
@@ -42,8 +42,8 @@ module "azure_database" {
     TamanhoArmazenamentoMb = 51200
     UsuarioAdministrador   = "acctestun"
     SenhaAdministrador     = "H@Sh1CoR3!"
-    GrupoRecurso           = local.GrupoRecurso
-    Regiao                 = local.Regiao
+    GrupoRecurso           = local.AzureGrupoRecurso
+    Regiao                 = local.AzureRegiao
   }
 
   ServidorMSSql = {
@@ -55,7 +55,7 @@ module "azure_database" {
     Linguagem            = "SQL_Latin1_General_CP1_CI_AS"
     Versao               = "12.0"
     TamanhoComputacional = "S0"
-    GrupoRecurso         = local.GrupoRecurso
-    Regiao               = local.Regiao
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
   }
 }

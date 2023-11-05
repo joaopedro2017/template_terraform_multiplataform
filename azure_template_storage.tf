@@ -4,7 +4,7 @@ module "azure_storage" {
   ContainerArmazenamento = {
     NomeContainers     = ["container-1", "container-3", "container-2"]
     ContaArmazenamento = "pinguinfenix"
-    GrupoRecurso       = local.GrupoRecurso
-    Regiao             = local.Regiao
+    GrupoRecurso       = local.AzureGrupoRecurso
+    Regiao             = local.AzureRegiao
   }
 }

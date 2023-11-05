@@ -9,9 +9,9 @@ module "aws_compute" {
     NomeInstancias           = []
     ImagemSistemaOperacional = "ami-05d8140b845a8aa7b"
     TipoInstancia            = "t2.micro"
-    Regiao                   = "us-east-2"
     NomeUsuario              = "foo"
     SenhaUsuario             = "foobarbaz"
+    Regiao                   = local.AWSRegiao
   }
 
   GrupoAutoScalarEC2 = {
@@ -20,7 +20,7 @@ module "aws_compute" {
     TipoInstancia            = "t2.micro"
     MinimoInstancia          = 0
     MaximoInstancia          = 32
-    Regiao                   = "us-east-2"
+    Regiao                   = local.AWSRegiao
   }
 
 }

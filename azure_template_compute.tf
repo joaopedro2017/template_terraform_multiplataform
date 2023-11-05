@@ -11,8 +11,8 @@ module "azure_compute" {
     TamanhoComputacional     = "Standard_B1s"
     UsuarioAdministrador     = "adminuser"
     SenhaAdministrador       = "TTest#123"
-    GrupoRecurso             = local.GrupoRecurso
-    Regiao                   = local.Regiao
+    GrupoRecurso             = local.AzureGrupoRecurso
+    Regiao                   = local.AzureRegiao
   }
 
   ## variaveis para provisionar maquinas virtuais linux
@@ -25,8 +25,8 @@ module "azure_compute" {
     TamanhoComputacional     = "Standard_B1s"
     UsuarioAdministrador     = "adminuser"
     SenhaAdministrador       = "TTest#123"
-    GrupoRecurso             = local.GrupoRecurso
-    Regiao                   = local.Regiao
+    GrupoRecurso             = local.AzureGrupoRecurso
+    Regiao                   = local.AzureRegiao
   }
 
   ## variaveis para provisionar conjunto de maquinas windows
@@ -40,8 +40,8 @@ module "azure_compute" {
     TamanhoComputacional       = "Standard_B1s"
     UsuarioAdministrador       = "adminuser"
     SenhaAdministrador         = "P@55w0rd1234!"
-    GrupoRecurso               = local.GrupoRecurso
-    Regiao                     = local.Regiao
+    GrupoRecurso               = local.AzureGrupoRecurso
+    Regiao                     = local.AzureRegiao
   }
 
   ## variaveis para provisionar conjunto de maquinas linux
@@ -55,7 +55,7 @@ module "azure_compute" {
     TamanhoComputacional       = "Standard_B1s"
     UsuarioAdministrador       = "adminuser"
     SenhaAdministrador         = "P@55w0rd1234!"
-    GrupoRecurso               = local.GrupoRecurso
-    Regiao                     = local.Regiao
+    GrupoRecurso               = local.AzureGrupoRecurso
+    Regiao                     = local.AzureRegiao
   }
 }

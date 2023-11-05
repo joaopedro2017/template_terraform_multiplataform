@@ -6,8 +6,8 @@ module "azure_webserver" {
     NomeInstancia        = "pangeia"
     NumeroInstancias     = 1
     TamanhoComputacional = "B1"
-    GrupoRecurso         = local.GrupoRecurso
-    Regiao               = local.Regiao
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
   }
 
   AplicativoWebLinux = {
@@ -15,8 +15,8 @@ module "azure_webserver" {
     NomeInstancia        = "creataceo"
     NumeroInstancias     = 1
     TamanhoComputacional = "B1"
-    GrupoRecurso         = local.GrupoRecurso
-    Regiao               = local.Regiao
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
   }
 
   FunctionWebWindows = {
@@ -25,8 +25,8 @@ module "azure_webserver" {
     NumeroInstancias     = 2
     TamanhoComputacional = "B1"
     ContaArmazenamento   = "batatinhast"
-    GrupoRecurso         = local.GrupoRecurso
-    Regiao               = local.Regiao
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
   }
 
   FunctionWebLinux = {
@@ -35,7 +35,7 @@ module "azure_webserver" {
     NumeroInstancias     = 2
     TamanhoComputacional = "B1"
     ContaArmazenamento   = "stfunctionlinux"
-    GrupoRecurso         = local.GrupoRecurso
-    Regiao               = local.Regiao
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
   }
 }

@@ -10,7 +10,7 @@ module "aws_database" {
     NomeUsuario          = "foo"
     SenhaUsuario         = "foobarbaz"
     GrupoParametro       = "default.mysql5.7"
-    Regiao               = "us-east-2"
+    Regiao               = local.AWSRegiao
   }
 
   BancoAthena = {
