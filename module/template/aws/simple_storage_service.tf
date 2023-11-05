@@ -9,7 +9,7 @@ module "simple_storage_service" {
 module "simple_storage_service_athena" {
   source      = "../../aws/storage/simple_storage_service"
   count       = length(var.BancoAthena.NomeBancos) > 0 ? 1 : 0
-  bucket_name = "${var.aws_authentication["project"]}-${var.aws_authentication["environment"]}-athena-s3"
+  bucket_name = var.BancoAthena.NomeBucket
   environment = var.aws_authentication["environment"]
   project     = var.aws_authentication["project"]
 }

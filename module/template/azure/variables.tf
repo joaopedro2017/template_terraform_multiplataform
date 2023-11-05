@@ -1,28 +1,3 @@
-locals {
-  # create_virtual_network = (
-  #   var.virtual_machine_linux["create"] ||
-  #   var.MaquinaVirtualWindows["create"] ||
-  #   var.linux_virtual_machine_scale_set["create"] ||
-  #   var.ConjuntoEscalarMaquinaVirtualWindows["create"]
-  # ) ? 1 : 0
-
-  # create_resource_group = (
-  #   var.virtual_machine_linux["create"] ||
-  #   var.MaquinaVirtualWindows["create"] ||
-  #   var.linux_virtual_machine_scale_set["create"] ||
-  #   var.ConjuntoEscalarMaquinaVirtualWindows["create"] ||
-  #   var.linux_web_app["create"] ||
-  #   var.AplicativoWebWindows["create"] ||
-  #   var.ServidorMSSql["create"] ||
-  #   var.ServidorMariaDB["create"] ||
-  #   var.ServidorPostgreSQL["create"] ||
-  #   var.mysql_database["create"] ||
-  #   var.ContainerArmazenamento["create"] ||
-  #   var.linux_function_app["create"] ||
-  #   var.FunctionWebWindows["create"]
-  # ) ? 1 : 0 
-}
-
 variable "MaquinaVirtualWindows" {
   type = object({
     NomeMaquinasVirtuais     = list(string)

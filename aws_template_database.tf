@@ -14,6 +14,7 @@ module "aws_database" {
   }
 
   BancoAthena = {
-    NomeBancos = [] ## Liste os Bancos com "", "" ....
+    NomeBancos = []
+    NomeBucket = ""
   }
 }

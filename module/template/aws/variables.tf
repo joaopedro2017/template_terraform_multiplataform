@@ -156,19 +156,24 @@ variable "ServicoBancoRelacional" {
 
 variable "BancoAthena" {
   type = object({
-    #create     = bool
     NomeBancos = list(string)
+    NomeBucket = string
   })
 
   default = {
-    #create     = false
     NomeBancos = []
+    NomeBucket = "bucket"
   }
 
-  /* validation {
-    condition     = length(var.BancoAthena.NomeBancos) > 0
-    error_message = "A lista de dn_names não pode estar vazia"
-  } */
+  validation {
+    condition     = length(var.BancoAthena.NomeBancos) == 0 || length(var.BancoAthena.NomeBucket) >= 3 && length(var.BancoAthena.NomeBucket) <= 63
+    error_message = "O nome do Bucket deve conter entre 3 a 63 caracteres"
+  }
+
+  validation {
+    condition     = length(var.BancoAthena.NomeBancos) == 0 || can(regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.BancoAthena.NomeBucket))
+    error_message = "Os nome do bucket deve conter apenas letras minúsculas, números e o caractere '-' e não podem começar ou terminar com '-'"
+  }
 
   validation {
     condition     = length(var.BancoAthena.NomeBancos) == 0 || length(distinct(var.BancoAthena.NomeBancos)) == length(var.BancoAthena.NomeBancos)

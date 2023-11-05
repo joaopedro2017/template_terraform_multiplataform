@@ -31,6 +31,21 @@ Neste repositório, você encontrará modelos para o provisionamento de recursos
 
 Esses modelos estão organizados em quatro categorias principais:
 
+
+* Armazenamento (Storage)
+    * <b>Amazon WebService:</b>
+        * <b>[Simple Storage Service S3](./documentation/aws-storage.md#simple-storage-service-s3)</b>
+    * <b>Microsoft Azure:</b> 
+        * <b>[Storage Container](./documentation/azure-storage.md#storage-container)</b>
+* Banco de Dados (Database)
+    * <b>Amazon WebService:</b>
+        * <b>[Relational Database Service (RDS)](./documentation/aws-database.md#relational-database-service)</b>
+        * <b>[Database Athena](./documentation/aws-database.md#database-athena)</b>
+    * <b>Microsoft Azure:</b>
+        * <b>[Database PostgreSQL](./documentation/azure-database.md#database-postgre)</b>
+        * <b>[Database MySql](./documentation/azure-database.md#database-mysql)</b>
+        * <b>[Database MariaDB](./documentation/azure-database.md#database-mariadb)</b>
+        * <b>[Database Microsoft SQL](./documentation/azure-database.md#database-microsoft-sql)</b>
 * Computação (Compute):
     * <b>Amazon WebService:</b> 
         * <b>[Elastic Compute Cloud (EC2)](./documentation/aws-compute.md#elastic-compute-cloud-ec2)</b>
@@ -38,20 +53,6 @@ Esses modelos estão organizados em quatro categorias principais:
     * <b>Microsoft Azure:</b> 
         * <b>[Máquina Virtual](./documentation/azure-compute.md#máquina-virtual)</b>
         * <b>[Conjunto de Dimensionamento de Máquinas Virtuais](./documentation/azure-compute.md#conjunto-de-dimensionamento-de-máquinas-virtuais)</b>
-* Banco de Dados (Database)
-    * <b>Amazon WebService:</b>
-        * <b>[Relational Database Service](./documentation/aws-database.md#relational-database-service)</b>
-        * <b>[Database Athena](./documentation/aws-database.md#database-athena)</b>
-    * <b>Microsoft Azure:</b>
-        * <b>[Database Postgre](./documentation/azure-database.md#database-postgre)</b>
-        * <b>[Database MySql](./documentation/azure-database.md#database-mysql)</b>
-        * <b>[Database MariaDB](./documentation/azure-database.md#database-mariadb)</b>
-        * <b>[Database Microsoft SQL](./documentation/azure-database.md#database-microsoft-sql)</b>
-* Armazenamento (Storage)
-    * <b>Amazon WebService:</b>
-        * <b>[Simple Storage Service S3](./documentation/aws-storage.md#simple-storage-service-s3)</b>
-    * <b>Microsoft Azure:</b> 
-        * <b>[Storage Container](./documentation/azure-storage.md#storage-container)</b>
 * Servidor Web (WebServer)
     * <b>Amazon WebService:</b>
         * <b>[App Runner](./documentation/aws-webserver.md#app-runner)</b>

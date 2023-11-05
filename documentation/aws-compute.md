@@ -12,21 +12,21 @@ O argumento "ImagemSistemaOperacional" determinará qual o sistema operacional q
 MaquinaVirtualEC2 = {
     NomeInstancias           = ["vmteste1", "vmteste2"]
     ImagemSistemaOperacional = "ami-07b36ea9852e986ad"
-    TipoInstancia            = "t2.micro"
-    Regiao                   = "us-east-2"
+    TipoInstancia            = "t2.micro"    
     NomeUsuario              = "foo"
     SenhaUsuario             = "foobarbaz"
+    Regiao                   = "us-east-2"
   }
 ```
 
 Atributos	| Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeInstancias | Preencha a lista com o nomes para as VMs  | - A lista de nomes deve conter entre 1 e 32 nomes <br> - Cada nome deve ter entre 3 a 128 caracteres <br> - Nomes devem conter apenas letras minúsculas (a-z), números (0-9) e ponto (.)
-ImagemSistemaOperacional |  É um modelo que contém a configuração de software (sistema operacional, servidor de aplicações e aplicações) necessária para executar a sua instância  | - Alguns exemplos: <br> - ami-00744e52917f35c39 > Microsoft Windows Server 2022 <br> - ami-0ec3d9efceafb89e0 > Debian 12 (HVM) <br> - ami-07b36ea9852e986ad > Ubuntu Server 20.04 LTS  <br> - Consulte as imagens disponíveis para sua região no Console AWS - [Catálogo de AMIs](https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#AMICatalog:) e para mais  detalhes acesse [Imagens de máquina da Amazon (AMIs)](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/AMIs.html)
-TipoInstancia | É uma combinação específica de recursos de CPU, memória, armazenamento e capacidades de rede, projetada para atender a diferentes necessidades e cargas de trabalho. | - Alguns exemplos: <br> - t2.nano <br> - t2.micro <br> - t2.small <br> - t2.large  <br> - Consulte os tipos de instâncias disponíveis para sua região no Console AWS - [Tipos de Instâncias](https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#InstanceTypes:)
-Regiao | É uma área geográfica onde os data centers e infraestrutura de serviços da AWS estão localizados.  | - Alguns exemplos: <br> - us-east-2 > US East (Ohio)  <br> - us-east-1 > US East (N. Virginia) <br> - ap-east-1 > Asia Pacific (Hong Kong) <br> - Observe no Console AWS qual região esta em uso <br> - Para mais regiões consulte [Regiões, zonas de disponibilidade e Local Zones](https://docs.aws.amazon.com/pt_br/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html)
+ImagemSistemaOperacional |  É um modelo que contém a configuração de software (sistema operacional, servidor de aplicações e aplicações) necessária para executar a sua instância  | - Exemplos: <br> - ami-00744e52917f35c39 > Microsoft Windows Server 2022 <br> - ami-0ec3d9efceafb89e0 > Debian 12 (HVM) <br> - ami-07b36ea9852e986ad > Ubuntu Server 20.04 LTS  <br> - Consulte as imagens disponíveis para sua região no Console AWS - [Catálogo de AMIs](https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#AMICatalog:) e para mais  detalhes acesse [Imagens de máquina da Amazon (AMIs)](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/AMIs.html)
+TipoInstancia | É uma combinação específica de recursos de CPU, memória, armazenamento e capacidades de rede, projetada para atender a diferentes necessidades e cargas de trabalho. | - Exemplos: <br> - t2.nano <br> - t2.micro <br> - t2.small <br> - t2.large  <br> - Consulte os tipos de instâncias disponíveis para sua região no Console AWS - [Tipos de Instâncias](https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#InstanceTypes:)
 NomeUsuario | Nome de usuário usado para fazer login em uma instância específica após a criação.  | - É importante definir um nome de usuário que será usado para acessar a instância.
 SenhaUsuario | A senha do administrador para fazer login na instância. |  - Certifique-se de que a senha seja forte e segura para garantir a segurança da instância.
+Regiao | É uma área geográfica onde os data centers e infraestrutura de serviços da AWS estão localizados.  | - Exemplos: <br> - us-east-2 > US East (Ohio)  <br> - us-east-1 > US East (N. Virginia) <br> - ap-east-1 > Asia Pacific (Hong Kong) <br> - Observe no Console AWS qual região esta em uso <br> - Para mais regiões consulte [Regiões, zonas de disponibilidade e Local Zones](https://docs.aws.amazon.com/pt_br/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html)
 
 ### Elastic Compute Cloud (EC2) Auto Scaling 
 
