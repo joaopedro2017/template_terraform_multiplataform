@@ -15,11 +15,10 @@ provider "aws" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "<resource_group_name>"
-    storage_account_name = "<storage_account_name>"
-    container_name       = "<container_name>"
-    key                  = "<key>"
-    access_key           = "<access_key>"
+    resource_group_name  = "terraform-gitops"
+    storage_account_name = "gitopstcc"
+    container_name       = "terrafrom"
+    key                  = "multiplataforma.terraform.tfstate"
   }
 }
 
