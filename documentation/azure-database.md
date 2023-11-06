@@ -83,8 +83,8 @@ RetencaoBackupDias    | Refere ao período de tempo durante o qual os backups au
 TamanhoArmazenamentoMb | Refere ao tamanho do armazenamento em megabytes (MB) alocado para o banco de dados. | - Valores: <br> - TamanhoComputacional Basic > de 5120 (5Gb) até 1048576 (1Tb) <br> - TamanhoComputacional Genaral Purpose ou Memory Optimized > de 5120 (5Gb) até 16777216 (16Gb)
 UsuarioAdministrador  | Refere ao nome de usuário do administrador que é usado para acessar e gerenciar um servidor de banco de dados no Azure. O administrador é uma conta especial que possui privilégios elevados para configurar e gerenciar o servidor.  | - Nome de usuário deve ter entre 1 a 63 caracteres
 SenhaAdministrador    | Contém a senha que você deseja atribuir à conta de administrador. | - A senha deve ter entre 8 a 128 caracteres <br> - A senha tem que conter letras maiúsculas e minúsculas, números e caracteres especiais como: ! @ # $ % ... 
-GrupoRecurso	| O nome do grupo de recursos do Azure onde a VM será criada	| - É necessário definir um grupo de recursos para organizar e gerenciar os recursos relacionados à VM.
-Regiao	| A região do Azure onde a VM será implantada	| - Escolha a região geográfica onde a VM será hospedada. Isso pode afetar o desempenho e a disponibilidade.
+GrupoRecurso	| O nome do grupo de recursos do Azure onde os recursos serão criados	| - É necessário definir um grupo de recursos para organizar e gerenciar os recursos
+Regiao	| A região do Azure onde os recursos serão implantados	| - Escolha a região geográfica onde os recursos serão hospedados. Isso pode afetar o desempenho e a disponibilidade.
 
 ### Database Microsoft SQL
 

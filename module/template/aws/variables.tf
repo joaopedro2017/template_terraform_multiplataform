@@ -76,19 +76,12 @@ variable "MaquinaVirtualEC2" {
 
 variable "ArmazenamentoS3" {
   type = object({
-    #create      = bool
-    NomeBuckets = list(string)
+       NomeBuckets = list(string)
   })
 
   default = {
-    #create      = false
-    NomeBuckets = []
+        NomeBuckets = []
   }
-
-  /* validation {
-    condition     = length(var.ArmazenamentoS3.NomeBuckets) == 0 || 
-    error_message = "A lista de bucket não pode estar vazia"
-  } */
 
   validation {
     condition     = length(var.ArmazenamentoS3.NomeBuckets) == 0 || length(distinct(var.ArmazenamentoS3["NomeBuckets"])) == length(var.ArmazenamentoS3["NomeBuckets"])
@@ -132,11 +125,6 @@ variable "ServicoBancoRelacional" {
     GrupoParametro       = ""
     Regiao               = ""
   }
-
-  /* validation {
-    condition     = length(var.ServicoBancoRelacional.db_names) > 0
-    error_message = "A lista de dn_names não pode estar vazia"
-  } */
 
   validation {
     condition     = length(var.ServicoBancoRelacional.NomeBancos) == 0 || length(distinct(var.ServicoBancoRelacional.NomeBancos)) == length(var.ServicoBancoRelacional.NomeBancos)
