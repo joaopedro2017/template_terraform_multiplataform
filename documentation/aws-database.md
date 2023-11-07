@@ -7,6 +7,8 @@
 
 O argumento "Mecanismo" determinará qual banco relacional será provisionado, na sequência temos um exemplo do bloco de argumentos e após os detalhes de cada argumento.
 
+
+Exemplo de uso:
 ```csharp
   ServicoBancoRelacional = {
     NomeBancos           = ["banco1", "banco2"]
@@ -21,7 +23,7 @@ O argumento "Mecanismo" determinará qual banco relacional será provisionado, n
   }
 ```
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeBancos  | Preencha a lista com os nomes para os bancos. | - Cada nome deve conter entre 3 a 60 caracteres <br> - Os nomes devem conter apenas letras minúsculas, números e o caratere '-', e não pode terminar com '-'
 ArmazenamentoAlocado | Refere à quantidade de espaço de armazenamento (GigaBytes) que é provisionada para um banco de dados RDS específico. | Valor inteiro maior que 0
@@ -39,6 +41,8 @@ Regiao | É uma área geográfica onde os data centers e infraestrutura de servi
 
 
 
+
+Exemplo de uso:
 ```csharp
   BancoAthena = {
     NomeBancos = ["banco1", "banco2"]
@@ -46,7 +50,7 @@ Regiao | É uma área geográfica onde os data centers e infraestrutura de servi
   }
 ```
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeBancos  | Preencha a lista com os nomes para os bancos. | - Cada nome deve conter entre 3 a 32 caracteres.  <br> - Os nomes devem conter apenas letras minúsculas, números e o caractere '_'
 NomeBucket | Preencha o nome do Bucket (S3) onde será armazenados os dados | - O nome deve conter entre 3 a 63 caracteres <br> - O nome do bucket deve conter apenas letras minúsculas, números e o caratere '-' e não pode começar ou terminar com '-' 

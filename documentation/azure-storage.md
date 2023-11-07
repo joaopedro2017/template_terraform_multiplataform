@@ -8,6 +8,8 @@
 
 
 
+
+Exemplo de uso:
 ```csharp
 ContainerArmazenamento = {
     NomeContainers     = ["container1", "container2"]
@@ -18,7 +20,7 @@ ContainerArmazenamento = {
 ```
 
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeContainers     | Preencha a lista com os nomes dos containers  | - Os nomes devem ter entre 3 a 63 caracteres <br> - Os nomes devem conter apenas letras minúsculas, números e o caratere '-' e não podem começar ou terminar com '-'
 ContaArmazenamento |  É um serviço da Microsoft Azure que fornece uma solução de armazenamento em nuvem altamente escalável e durável.  | - ContaArmazenamento deve ter entre 3 a 24 caracteres <br> - ContaArmazenamento deve conter apenas letras minúsculas e números

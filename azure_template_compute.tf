@@ -1,8 +1,7 @@
 module "azure_compute" {
   source = "./module/template/azure"
 
-  ## variaveis para provisionar maquinas virtuais windows
-  MaquinaVirtualWindows = { ## ate 125 maquinas virtuais 
+  MaquinaVirtualWindows = {
     NomeMaquinasVirtuais     = []
     ImagemFornecedor         = "MicrosoftWindowsServer"
     ImagemSistemaOperacional = "WindowsServer"
@@ -15,8 +14,7 @@ module "azure_compute" {
     Regiao                   = local.AzureRegiao
   }
 
-  ## variaveis para provisionar maquinas virtuais linux
-  MaquinaVirtualLinux = { ## ate 125 maquinas virtuais 
+  MaquinaVirtualLinux = {
     NomeMaquinasVirtuais     = []
     ImagemFornecedor         = "Canonical"
     ImagemSistemaOperacional = "UbuntuServer"
@@ -29,9 +27,8 @@ module "azure_compute" {
     Regiao                   = local.AzureRegiao
   }
 
-  ## variaveis para provisionar conjunto de maquinas windows
-  ConjuntoEscalarMaquinaVirtualWindows = { ## ate 100 instancias
-    NomeConjuntoMaquinaVirtual = ""
+  ConjuntoEscalarMaquinaVirtualWindows = {
+    NomeConjuntoMaquinaVirtual = "conjunto-vm3"
     NumeroInstancias           = 5
     ImagemFornecedor           = "MicrosoftWindowsServer"
     ImagemSistemaOperacional   = "WindowsServer"
@@ -44,9 +41,8 @@ module "azure_compute" {
     Regiao                     = local.AzureRegiao
   }
 
-  ## variaveis para provisionar conjunto de maquinas linux
-  ConjuntoEscalarMaquinaVirtualLinux = { ## ate 100 instancias
-    NomeConjuntoMaquinaVirtual = ""
+  ConjuntoEscalarMaquinaVirtualLinux = {
+    NomeConjuntoMaquinaVirtual = "conjunto-linux"
     NumeroInstancias           = 5
     ImagemFornecedor           = "Canonical"
     ImagemSistemaOperacional   = "UbuntuServer"

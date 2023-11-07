@@ -6,6 +6,8 @@
 
 É um serviço de banco de dados gerenciado oferecido pela Microsoft Azure que permite implantar e gerenciar instâncias de bancos de dados PostgreSQL na nuvem. O serviço é projetado para suportar o PostgreSQL, um sistema de gerenciamento de banco de dados relacional de código aberto amplamente utilizado. Ele oferece compatibilidade com as versões mais recentes do PostgreSQL.
 
+
+Exemplo de uso:
 ```csharp
 ServidorPostgreSQL = {
     NomeBancos             = ["banco1", "banco2", "banco3"]
@@ -28,6 +30,8 @@ ServidorPostgreSQL = {
 É um serviço de banco de dados gerenciado oferecido pela Microsoft Azure que permite implantar e gerenciar instâncias de bancos de dados MySQL na nuvem. O serviço é projetado para suportar o MySQL, um sistema de gerenciamento de banco de dados relacional de código aberto amplamente utilizado. Ele oferece compatibilidade com as versões mais recentes do MySQL e mantém a integridade do mecanismo original.
 
 
+
+Exemplo de uso:
 ```csharp
 ServidorMySQL = {
     NomeBancos             = ["banco1", "banco2", "banco3"]
@@ -50,6 +54,8 @@ ServidorMySQL = {
 É um serviço de banco de dados gerenciado oferecido pela Microsoft Azure que permite implantar e gerenciar instâncias de bancos de dados MariaDB na nuvem. MariaDB é um sistema de gerenciamento de banco de dados relacional de código aberto que é uma bifurcação do MySQL e é amplamente utilizado por muitas organizações. O serviço é projetado para suportar o MariaDB, garantindo a compatibilidade com as versões mais recentes do MariaDB.
 
 
+
+Exemplo de uso:
 ```csharp
 ServidorMariaDB = {
     NomeBancos             = ["banco1", "banco2", "banco3"]
@@ -71,7 +77,7 @@ ServidorMariaDB = {
 
 Os atributos a seguir podemos considerar para os recursos: Database PostgreSQL, Database MySql e Database MariaDB.
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeBancos |Forneça uma lista com os nomes do(s) banco(s). | - Os nomes devem ter entre 1 a 128 caracteres <br> - Os nomes dos bancos devem conter apenas letras minúsculas, números e o caratere '-' e não pode começar ou terminar com '-'
 NomeServidor  | Forneça o nome da instância de Banco. | 
@@ -90,11 +96,13 @@ Regiao	| A região do Azure onde os recursos serão implantados	| - Escolha a re
 
 É um serviço de banco de dados gerenciado oferecido pela Microsoft Azure que permite implantar e gerenciar bancos de dados SQL Server na nuvem. O Azure SQL Database é projetado para oferecer compatibilidade com o Microsoft SQL Server, permitindo executar aplicativos que usam SQL Server na nuvem. Ele oferece suporte a várias versões do SQL Server.
 
+
+Exemplo de uso:
 ```csharp
 
 ```
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 
 

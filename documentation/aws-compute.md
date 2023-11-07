@@ -8,6 +8,8 @@
 
 O argumento "ImagemSistemaOperacional" determinará qual o sistema operacional que será utilizado. Na sequência temos o bloco de exemplo sobre o provisionado e mais abaixo uma tabela sobre os argumentos necessários.
 
+
+Exemplo de uso:
 ```csharp
 MaquinaVirtualEC2 = {
     NomeInstancias           = ["vmteste1", "vmteste2"]
@@ -19,7 +21,7 @@ MaquinaVirtualEC2 = {
   }
 ```
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeInstancias | Preencha a lista com o nomes para as VMs  | - A lista de nomes deve conter entre 1 e 32 nomes <br> - Cada nome deve ter entre 3 a 128 caracteres <br> - Nomes devem conter apenas letras minúsculas (a-z), números (0-9) e ponto (.)
 ImagemSistemaOperacional |  É um modelo que contém a configuração de software (sistema operacional, servidor de aplicações e aplicações) necessária para executar a sua instância  | - Exemplos: <br> - ami-00744e52917f35c39 > Microsoft Windows Server 2022 <br> - ami-0ec3d9efceafb89e0 > Debian 12 (HVM) <br> - ami-07b36ea9852e986ad > Ubuntu Server 20.04 LTS  <br> - Consulte as imagens disponíveis para sua região no Console AWS - [Catálogo de AMIs](https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#AMICatalog:) e para mais  detalhes acesse [Imagens de máquina da Amazon (AMIs)](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/AMIs.html)
@@ -34,6 +36,8 @@ Regiao | É uma área geográfica onde os data centers e infraestrutura de servi
 
 Na tabela a seguir, serão apresentados os argumentos para os recursos de <b>Elastic Compute Cloud (EC2) Auto Scaling</b>. Alguns dos argumentos, como ImagemSistemaOperacional, TipoInstancia e Regiao, já foram mencionados anteriormente. Portanto, focaremos nos argumentos restantes:
 
+
+Exemplo de uso:
 ```csharp
 GrupoAutoScalarEC2 = {
   NomeGrupo                = "grupo-teste"
@@ -45,7 +49,7 @@ GrupoAutoScalarEC2 = {
 }
 ```
 
-Atributos	| Especificações	| Restrições
+Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeGrupo | Nome atribuído ao grupo de instâncias EC2 | 
 MinimoInstancia | Define o número mínimo de instâncias que o grupo de auto scaling deve manter em execução | - O valor tem que ser maior ou igual a 0
