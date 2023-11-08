@@ -20,7 +20,7 @@ terraform {
     storage_account_name = "gitopstcc"
     container_name       = "terrafrom"
     key                  = "multiplataforma.terraform.tfstate"
-    access_key           = "<access_key>"
+    # access_key           = "<access_key>"
   }
 }
 
