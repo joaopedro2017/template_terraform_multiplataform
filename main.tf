@@ -1,16 +1,16 @@
 provider "aws" {
-  access_key = "access_key"
-  secret_key = "secret_key"
-  region     = "us-east-2"
+  # access_key = "access_key"
+  # secret_key = "secret_key"
+  # region     = "us-east-2"
 }
 
 provider "azurerm" {
   features {}
   skip_provider_registration = true
-  client_id                  = "client_id"
-  client_secret              = "client_secret"
-  tenant_id                  = "tenant_id"
-  subscription_id            = "subscription_id"
+  # client_id                  = "client_id"
+  # client_secret              = "client_secret"
+  # tenant_id                  = "tenant_id"
+  # subscription_id            = "subscription_id"
 }
 
 
