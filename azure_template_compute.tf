@@ -2,7 +2,7 @@ module "azure_compute" {
   source = "./module/template/azure"
 
   MaquinaVirtualWindows = {
-    NomeMaquinasVirtuais     = []
+    NomeMaquinasVirtuais     = ["UniAcademia-Test"]
     ImagemFornecedor         = "MicrosoftWindowsServer"
     ImagemSistemaOperacional = "WindowsServer"
     ImagemDistribuicao       = "2016-Datacenter"
@@ -28,7 +28,7 @@ module "azure_compute" {
   }
 
   ConjuntoEscalarMaquinaVirtualWindows = {
-    NomeConjuntoMaquinaVirtual = "conjunto-vm3"
+    NomeConjuntoMaquinaVirtual = ""
     NumeroInstancias           = 5
     ImagemFornecedor           = "MicrosoftWindowsServer"
     ImagemSistemaOperacional   = "WindowsServer"
@@ -42,7 +42,7 @@ module "azure_compute" {
   }
 
   ConjuntoEscalarMaquinaVirtualLinux = {
-    NomeConjuntoMaquinaVirtual = "conjunto-linux"
+    NomeConjuntoMaquinaVirtual = ""
     NumeroInstancias           = 5
     ImagemFornecedor           = "Canonical"
     ImagemSistemaOperacional   = "UbuntuServer"

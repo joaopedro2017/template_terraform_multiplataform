@@ -2,8 +2,8 @@ module "azure_webserver" {
   source = "./module/template/azure"
 
   AplicativoWebWindows = {
-    NomeAplicativos      = []
-    NomeInstancia        = "pangeia"
+    NomeAplicativos      = ["biblioteca-api"]
+    NomeInstancia        = "uniacademia-apps"
     NumeroInstancias     = 1
     TamanhoComputacional = "B1"
     GrupoRecurso         = local.AzureGrupoRecurso
