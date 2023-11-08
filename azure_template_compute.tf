@@ -2,7 +2,7 @@ module "azure_compute" {
   source = "./module/template/azure"
 
   MaquinaVirtualWindows = {
-    NomeMaquinasVirtuais     = ["UniAcademiaTest"]
+    NomeMaquinasVirtuais     = []
     ImagemFornecedor         = "MicrosoftWindowsServer"
     ImagemSistemaOperacional = "WindowsServer"
     ImagemDistribuicao       = "2016-Datacenter"
