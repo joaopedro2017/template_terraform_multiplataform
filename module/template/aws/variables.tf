@@ -137,8 +137,8 @@ variable "ServicoBancoRelacional" {
   }
 
   validation {
-    condition     = length(var.ServicoBancoRelacional.NomeBancos) == 0 || alltrue([for name in var.ServicoBancoRelacional.NomeBancos : can(regex("^[a-z0-9]+(?:-[a-z0-9]+)*$", name))])
-    error_message = "Os nomes dos bancos devem conter apenas letras minúsculas, números e o caractere '-' e não podem começar ou terminar com '-'"
+    condition     = length(var.ServicoBancoRelacional.NomeBancos) == 0 || alltrue([for name in var.ServicoBancoRelacional.NomeBancos : can(regex("^[a-z0-9]*$", name))])
+    error_message = "Os nomes dos bancos devem conter apenas letras minúsculas e números"
   }
 }
 

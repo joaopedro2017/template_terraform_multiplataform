@@ -31,8 +31,8 @@ variable "MaquinaVirtualWindows" {
   }
 
   validation {
-    condition     = length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) == 0 || (length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) > 0 && alltrue([for name in var.MaquinaVirtualWindows.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 48]))
-    error_message = "A lista de nomes de Máquinas Virtuais não pode estar vazia e os nomes devem ter entre 1 e 48 caracteres."
+    condition     = length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) == 0 || (length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) > 0 && alltrue([for name in var.MaquinaVirtualWindows.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 15]))
+    error_message = "A lista de nomes de Máquinas Virtuais não pode estar vazia e os nomes devem ter entre 1 e 15 caracteres."
   }
 
   validation {

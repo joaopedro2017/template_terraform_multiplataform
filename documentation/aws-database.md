@@ -25,7 +25,7 @@ Exemplo de uso:
 
 Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
-NomeBancos  | Preencha a lista com os nomes para os bancos. | - Cada nome deve conter entre 3 a 60 caracteres <br> - Os nomes devem conter apenas letras minúsculas, números e o caratere '-', e não pode terminar com '-'
+NomeBancos  | Preencha a lista com os nomes para os bancos. | - Cada nome deve conter entre 3 a 60 caracteres <br> - Os nomes devem conter apenas letras minúsculas e números
 ArmazenamentoAlocado | Refere à quantidade de espaço de armazenamento (GigaBytes) que é provisionada para um banco de dados RDS específico. | Valor inteiro maior que 0
 Mecanismo | Refere-se ao software de banco de dados subjacente que é usado para armazenar, gerenciar e recuperar dados. | - Forneça o valor desejado <br> - Exemplos: <br> - mysql <br> - postgresql <br> - oracle <br> - sqlserver <br> -  mariadb
 MecanismoVersao    | A versão específica do mecanismo de banco de dados a ser usada | - Consulte a versão de cada mecanismo <br> - Exemplos: <br> - mysql: 8.0.34; 8.0.28; 5.7.37 entre outros

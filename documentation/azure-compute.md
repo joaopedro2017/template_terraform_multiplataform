@@ -38,7 +38,7 @@ MaquinaVirtualLinux = {
 
 Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
-NomeMaquinasVirtuais	| Forneça uma lista de nomes para suas máquinas virtuais	| - A lista deve conter até 125 nomes, com cada nome contendo no máximo 64 caracteres.<br> - Os nomes não podem se repetir. <br> - Caso a lista esteja vazia não sera provisionado
+NomeMaquinasVirtuais	| Forneça uma lista de nomes para suas máquinas virtuais	| - A lista deve conter até 125 nomes, com cada nome contendo no máximo 64 caracteres.<br> - Os nomes não podem se repetir. <br> - Cada nome no máximo de 15 caracteres  <br> - Caso a lista esteja vazia não sera provisionado
 ImagemFornecedor	| O fornecedor da imagem da máquina virtual| 	- No Azure, as imagens da Canonical são comuns para sistemas Linux, enquanto "MicrosoftWindowsServer" é usado para sistemas Windows.
 ImagemSistemaOperacional| 	O sistema operacional da imagem da máquina virtual	| - Pode ser "UbuntuServer" para sistemas Linux ou "WindowsServer" para sistemas Windows.
 ImagemDistribuicao	| A distribuição específica do sistema operacional	| - Para sistemas Linux, é comum usar "18.04-LTS", enquanto para sistemas Windows, "2016-Datacenter" é uma opção.
