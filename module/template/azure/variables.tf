@@ -31,8 +31,8 @@ variable "MaquinaVirtualWindows" {
   }
 
   validation {
-    condition     = length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) == 0 || (length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) > 0 && alltrue([for name in var.MaquinaVirtualWindows.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 15]))
-    error_message = "A lista de nomes de Máquinas Virtuais não pode estar vazia e os nomes devem ter entre 1 e 15 caracteres."
+    condition     = length(var.MaquinaVirtualWindows.NomeMaquinasVirtuais) == 0 || alltrue([for name in var.MaquinaVirtualWindows.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 15])
+    error_message = "Os nomes devem ter entre 1 e 15 caracteres."
   }
 
   validation {
@@ -74,8 +74,8 @@ variable "MaquinaVirtualLinux" {
   }
 
   validation {
-    condition     = length(var.MaquinaVirtualLinux.NomeMaquinasVirtuais) == 0 || (length(var.MaquinaVirtualLinux.NomeMaquinasVirtuais) > 0 && alltrue([for name in var.MaquinaVirtualLinux.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 48]))
-    error_message = "A lista de nomes de Máquinas Virtuais não pode estar vazia e os nomes devem ter entre 1 e 48 caracteres."
+    condition     = length(var.MaquinaVirtualLinux.NomeMaquinasVirtuais) == 0 || alltrue([for name in var.MaquinaVirtualLinux.NomeMaquinasVirtuais : length(name) >= 1 && length(name) <= 48])
+    error_message = "Os nomes devem ter entre 1 e 48 caracteres."
   }
 
   validation {
@@ -199,8 +199,8 @@ variable "AplicativoWebWindows" {
   }
 
   validation {
-    condition     = length(var.AplicativoWebWindows.NomeAplicativos) == 0 || (length(var.AplicativoWebWindows.NomeAplicativos) > 0 && alltrue([for name in var.AplicativoWebWindows.NomeAplicativos : length(name) >= 3 && length(name) <= 63]))
-    error_message = "A lista de Apps não pode estar vazia e os nomes devem ter entre 3 e 63 caracteres."
+    condition     = length(var.AplicativoWebWindows.NomeAplicativos) == 0 || alltrue([for name in var.AplicativoWebWindows.NomeAplicativos : length(name) >= 3 && length(name) <= 63])
+    error_message = "Os nomes devem ter entre 3 e 63 caracteres."
   }
 
   validation {
@@ -239,8 +239,8 @@ variable "AplicativoWebLinux" {
   }
 
   validation {
-    condition     = length(var.AplicativoWebLinux.NomeAplicativos) == 0 || (length(var.AplicativoWebLinux.NomeAplicativos) > 0 && alltrue([for name in var.AplicativoWebLinux.NomeAplicativos : length(name) >= 3 && length(name) <= 63]))
-    error_message = "A lista de Apps não pode estar vazia e os nomes devem ter entre 3 e 63 caracteres."
+    condition     = length(var.AplicativoWebLinux.NomeAplicativos) == 0 || alltrue([for name in var.AplicativoWebLinux.NomeAplicativos : length(name) >= 3 && length(name) <= 63])
+    error_message = "Os nomes devem ter entre 3 e 63 caracteres."
   }
 
   validation {
@@ -281,8 +281,8 @@ variable "FunctionWebWindows" {
   }
 
   validation {
-    condition     = length(var.FunctionWebWindows.NomeFunctions) == 0 || (length(var.FunctionWebWindows.NomeFunctions) > 0 && alltrue([for name in var.FunctionWebWindows.NomeFunctions : length(name) >= 3 && length(name) <= 63]))
-    error_message = "A lista de Apps não pode estar vazia e os nomes devem ter entre 3 e 63 caracteres."
+    condition     = length(var.FunctionWebWindows.NomeFunctions) == 0 || alltrue([for name in var.FunctionWebWindows.NomeFunctions : length(name) >= 3 && length(name) <= 63])
+    error_message = "Os nomes devem ter entre 3 e 63 caracteres."
   }
 
   validation {
@@ -328,8 +328,8 @@ variable "FunctionWebLinux" {
   }
 
   validation {
-    condition     = length(var.FunctionWebLinux.NomeFunctions) == 0 || (length(var.FunctionWebLinux.NomeFunctions) > 0 && alltrue([for name in var.FunctionWebLinux.NomeFunctions : length(name) >= 3 && length(name) <= 63]))
-    error_message = "A lista de Apps não pode estar vazia e os nomes devem ter entre 3 e 63 caracteres."
+    condition     = length(var.FunctionWebLinux.NomeFunctions) == 0 || alltrue([for name in var.FunctionWebLinux.NomeFunctions : length(name) >= 3 && length(name) <= 63])
+    error_message = "Os nomes devem ter entre 3 e 63 caracteres."
   }
 
   validation {
@@ -364,7 +364,7 @@ variable "ServidorMSSql" {
 
   default = {
     NomeBancos           = []
-    NomeServidor         = ""
+    NomeServidor         = "teste"
     UsuarioAdministrador = ""
     SenhaAdministrador   = ""
     TamanhoMaximoGb      = 0
@@ -376,18 +376,40 @@ variable "ServidorMSSql" {
   }
 
   validation {
-    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || length(distinct(var.ServidorMSSql["NomeBancos"])) == length(var.ServidorMSSql["NomeBancos"])
+    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || (length(var.ServidorMSSql.NomeServidor) >= 1 && length(var.ServidorMSSql.NomeServidor) <= 63)
+    error_message = "O nome do Servidor devem ter entre 1 e 63 caracteres."
+  }
+
+  validation {
+    condition = length(var.ServidorMSSql.NomeBancos) == 0 || can(
+      regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorMSSql.NomeServidor
+    ))
+    error_message = "O nome do Servidor deve conter apenas letras minúsculas, números e o caratere '-'"
+  }
+
+  validation {
+    condition = length(var.ServidorMSSql.NomeBancos) == 0 || length(
+      distinct(var.ServidorMSSql["NomeBancos"])
+      ) == length(
+      var.ServidorMSSql["NomeBancos"]
+    )
     error_message = "A lista de bancos contém valores duplicados."
   }
 
   validation {
-    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || length(var.ServidorMSSql.NomeBancos) > 0 && alltrue([for name in var.ServidorMSSql.NomeBancos : length(name) >= 1 && length(name) <= 128])
-    error_message = "A lista de bancos não pode estar vazia e os nomes devem ter entre 1 e 128 caracteres."
+    condition = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([
+      for name in var.ServidorMSSql.NomeBancos :
+      length(name) >= 1 && length(name) <= 128
+    ])
+    error_message = "Os nomes dos Bancos SQL devem ter entre 1 e 128 caracteres."
   }
 
   validation {
-    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([for name in var.ServidorMSSql.NomeBancos : can(regex("^[a-zA-Z0-9_-]+$", name))])
-    error_message = "Os nomes dos bancos devem conter apenas letras minúsculas, números e o caractere '-' e não pode começar ou terminar com '-'."
+    condition = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([
+      for name in var.ServidorMSSql.NomeBancos :
+      can(regex("^[a-z0-9_-]*$", name)) ## && !can(regex("[ <>*%&:\\/?]$", name))
+    ])
+    error_message = "Os nomes dos bancos devem conter apenas letras minúsculas, números e os caractere '-' e '_'"
   }
 }
 
@@ -409,7 +431,7 @@ variable "ServidorMariaDB" {
 
   default = {
     NomeBancos             = []
-    NomeServidor           = ""
+    NomeServidor           = "teste"
     GrupoRecurso           = ""
     Linguagem              = ""
     ConjuntoCaracteres     = ""
@@ -423,13 +445,18 @@ variable "ServidorMariaDB" {
   }
 
   validation {
+    condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || (length(var.ServidorMariaDB.NomeServidor) >= 3 && length(var.ServidorMariaDB.NomeServidor) <= 63)
+    error_message = "O nome do Servidor devem ter entre 3 e 63 caracteres."
+  }
+
+  validation {
     condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || length(distinct(var.ServidorMariaDB["NomeBancos"])) == length(var.ServidorMariaDB["NomeBancos"])
     error_message = "A lista de bancos contém valores duplicados."
   }
 
   validation {
-    condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || length(var.ServidorMariaDB.NomeBancos) > 0 && alltrue([for name in var.ServidorMariaDB.NomeBancos : length(name) >= 1 && length(name) <= 128])
-    error_message = "A lista de bancos não pode estar vazia e os nomes devem ter entre 1 e 128 caracteres."
+    condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || alltrue([for name in var.ServidorMariaDB.NomeBancos : length(name) >= 1 && length(name) <= 128])
+    error_message = "Os nomes devem ter entre 1 e 128 caracteres."
   }
 
   validation {
@@ -475,8 +502,8 @@ variable "ServidorMySQL" {
   }
 
   validation {
-    condition     = length(var.ServidorMySQL.NomeBancos) == 0 || length(var.ServidorMySQL.NomeBancos) > 0 && alltrue([for name in var.ServidorMySQL.NomeBancos : length(name) >= 1 && length(name) <= 128])
-    error_message = "A lista de bancos não pode estar vazia e os nomes devem ter entre 1 e 128 caracteres."
+    condition     = length(var.ServidorMySQL.NomeBancos) == 0 || alltrue([for name in var.ServidorMySQL.NomeBancos : length(name) >= 1 && length(name) <= 128])
+    error_message = "Os nomes devem ter entre 1 e 128 caracteres."
   }
 
   validation {
@@ -522,8 +549,8 @@ variable "ServidorPostgreSQL" {
   }
 
   validation {
-    condition     = length(var.ServidorPostgreSQL.NomeBancos) == 0 || (length(var.ServidorPostgreSQL.NomeBancos) > 0 && alltrue([for name in var.ServidorPostgreSQL.NomeBancos : length(name) >= 1 && length(name) <= 128]))
-    error_message = "A lista de bancos não pode estar vazia e os nomes devem ter entre 1 e 128 caracteres."
+    condition     = length(var.ServidorPostgreSQL.NomeBancos) == 0 || alltrue([for name in var.ServidorPostgreSQL.NomeBancos : length(name) >= 1 && length(name) <= 128])
+    error_message = "Os nomes devem ter entre 1 e 128 caracteres."
   }
 
   validation {
@@ -559,12 +586,12 @@ variable "ContainerArmazenamento" {
 
   validation {
     condition     = length(var.ContainerArmazenamento.NomeContainers) == 0 || can(regex("^[a-z0-9]*$", var.ContainerArmazenamento.ContaArmazenamento))
-    error_message = "O nome do Storage Account deve conter apenas letras minúsculas e números."
+    error_message = "O nome do Azure Storage Account deve conter apenas letras minúsculas e números."
   }
 
   validation {
-    condition     = length(var.ContainerArmazenamento.NomeContainers) == 0 || (length(var.ContainerArmazenamento.NomeContainers) > 0 && alltrue([for name in var.ContainerArmazenamento.NomeContainers : length(name) >= 3 && length(name) <= 63]))
-    error_message = "A lista de nomes de contêineres do Storage Account não pode estar vazia e os nomes devem ter entre 3 e 63 caracteres."
+    condition     = length(var.ContainerArmazenamento.NomeContainers) == 0 || alltrue([for name in var.ContainerArmazenamento.NomeContainers : length(name) >= 3 && length(name) <= 63])
+    error_message = "Nomes devem ter entre 3 e 63 caracteres."
   }
 
   validation {

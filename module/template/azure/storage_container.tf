@@ -5,6 +5,4 @@ module "storage_container" {
   container_names      = var.ContainerArmazenamento["NomeContainers"]
   resource_group_name  = var.ContainerArmazenamento["GrupoRecurso"]
   location             = var.ContainerArmazenamento["Regiao"]
-
-  
 }

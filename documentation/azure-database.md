@@ -99,7 +99,18 @@ Regiao	| A região do Azure onde os recursos serão implantados	| - Escolha a re
 
 Exemplo de uso:
 ```csharp
-
+ServidorMSSql = {
+    NomeBancos           = []
+    NomeServidor         = "servidor-pessoal-mssql"
+    UsuarioAdministrador = "4dm1n157r470r"
+    SenhaAdministrador   = "4-v3ry-53cr37-p455w0rd"
+    TamanhoMaximoGb      = 4
+    Linguagem            = "SQL_Latin1_General_CP1_CI_AS"
+    Versao               = "12.0"
+    TamanhoComputacional = "S0"
+    GrupoRecurso         = local.AzureGrupoRecurso
+    Regiao               = local.AzureRegiao
+}
 ```
 
 Argumentos | Especificações	| Restrições

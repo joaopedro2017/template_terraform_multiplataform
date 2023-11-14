@@ -46,9 +46,10 @@ module "azure_database" {
     Regiao                 = local.AzureRegiao
   }
 
+
   ServidorMSSql = {
-    NomeBancos           = []
-    NomeServidor         = "servidor-pessoal-mssql"
+    NomeBancos           = ["banco1"]
+    NomeServidor         = "db-uniacademia"
     UsuarioAdministrador = "4dm1n157r470r"
     SenhaAdministrador   = "4-v3ry-53cr37-p455w0rd"
     TamanhoMaximoGb      = 4
