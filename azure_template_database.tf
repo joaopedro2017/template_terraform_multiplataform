@@ -48,7 +48,7 @@ module "azure_database" {
 
 
   ServidorMSSql = {
-    NomeBancos           = ["banco1"]
+    NomeBancos           = []
     NomeServidor         = "db-uniacademia"
     UsuarioAdministrador = "4dm1n157r470r"
     SenhaAdministrador   = "4-v3ry-53cr37-p455w0rd"
