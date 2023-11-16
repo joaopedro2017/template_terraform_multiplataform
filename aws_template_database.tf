@@ -2,7 +2,7 @@ module "aws_database" {
   source = "./module/template/aws"
 
   ServicoBancoRelacional = {
-    NomeBancos           = []
+    NomeBancos           = ["uniacademiadb"]
     ArmazenamentoAlocado = 10
     Mecanismo            = "mysql"
     MecanismoVersao      = "5.7"
