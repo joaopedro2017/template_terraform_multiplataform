@@ -2,7 +2,7 @@ module "azure_webserver" {
   source = "./module/template/azure"
 
   AplicativoWebWindows = {
-    NomeAplicativos      = ["uniacademia-biblioteca", "uniacademia-labs"]
+    NomeAplicativos      = []
     NomeInstancia        = "uniacademia-apps"
     NumeroInstancias     = 1
     TamanhoComputacional = "B1"
