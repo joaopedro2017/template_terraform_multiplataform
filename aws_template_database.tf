@@ -18,3 +18,5 @@ module "aws_database" {
     NomeBucket = ""
   }
 }
+
+## juntamente com um AWS RDS Database
