@@ -12,7 +12,7 @@ Antes de utilizar o template para provisionar recursos nas plataformas Azure e A
 
 * <b>Terraform:</b> o Terraform é uma ferramenta de infraestrutura como código utilizada para criar, alterar e provisionar recursos de infraestrutura de forma automatizada. Certifique-se de ter o Terraform instalado em sua máquina. Você pode baixá-lo em <b> [Terraform](https://www.terraform.io/downloads.html)</b>.
 * <b>Credenciais das plataformas:</b> para provisionar recursos nas plataformas Azure e AWS, é necessário ter credenciais de acesso válidas para cada plataforma. Certifique-se de ter as credenciais necessárias para se conectar à plataforma desejada.
-* <b>Configuração de ambiente:</b> é necessário configurar o ambiente de acordo com as especificações de cada plataforma. Certifique-se de ter as informações necessárias, como endereços de IPs, chaves de acesso e demais configurações para criar e provisionar recursos nas plataformas Azure e AWS .
+* <b>Configuração de ambiente:</b> é necessário configurar o ambiente de acordo com as especificações de cada plataforma. Certifique-se de ter as informações necessárias, como endereços de IPs, chaves de acesso e demais configurações para criar e provisionar recursos nas plataformas Azure e AWS.
 
 ## Passos:
 
@@ -27,7 +27,7 @@ Antes de utilizar o template para provisionar recursos nas plataformas Azure e A
 
 # Templates:
 
-Neste repositório, você encontrará modelos para o provisionamento de recursos em duas das principais plataformas de nuvem: Microsoft Azure e Amazon Web Services (AWS).
+Neste repositório, você encontrará modelos para o provisionamento de recursos em duas das principais plataformas de nuvem: Amazon Web Services (AWS) e Microsoft Azure.
 
 Esses modelos estão organizados em quatro categorias principais:
 
@@ -56,6 +56,8 @@ Esses modelos estão organizados em quatro categorias principais:
 * Servidor Web (WebServer)
     * <b>Amazon WebService:</b>
         * <b>[App Runner](./documentation/aws-webserver.md#app-runner)</b>
+        * <b>[Beanstalk Application](./documentation/aws-webserver.md#beanstalk-application)
     * <b>Microsoft Azure:</b> 
         * <b>[App Service](./documentation/azure-webserver.md#app-service)</b>
         * <b>[Azure Functions](./documentation/azure-webserver.md#azure-functions)</b>
+        

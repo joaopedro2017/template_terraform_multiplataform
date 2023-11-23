@@ -46,7 +46,6 @@ module "azure_database" {
     Regiao                 = local.AzureRegiao
   }
 
-
   ServidorMSSql = {
     NomeBancos           = []
     NomeServidor         = "db-uniacademia"

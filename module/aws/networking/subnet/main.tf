@@ -4,7 +4,6 @@ resource "aws_subnet" "subnet" {
   availability_zone = var.availability_zone
 
   tags = {
-    Name        = "${var.project}-${var.environment}-${var.subnet_name}-subnet"
-    Environment = var.environment
+    Name = "${var.subnet_name}-subnet"
   }
 }

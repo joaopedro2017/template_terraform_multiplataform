@@ -6,14 +6,10 @@ variable "image_identifier" {
   type = string
 }
 
-variable "environment" {
-  type = string
-}
-
-variable "project" {
-  type = string
-}
-
 variable "port" {
+  type = string
+}
+
+variable "image_repository_type" {
   type = string
 }

@@ -12,7 +12,5 @@ resource "aws_db_instance" "rds_db" {
 
   tags = {
     Name        = var.db_name
-    Environment = var.environment
-    Project     = var.project
   }
 }

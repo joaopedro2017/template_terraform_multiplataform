@@ -73,8 +73,6 @@ ServidorMariaDB = {
 }
 ```
 
-
-
 Os atributos a seguir podemos considerar para os recursos: Database PostgreSQL, Database MySql e Database MariaDB.
 
 Argumentos | Especificações	| Restrições

@@ -6,24 +6,6 @@ locals {
   ) ? 1 : 0
 }
 
-variable "aws_authentication" {
-  type = object({
-    project     = string
-    environment = string
-    access_key  = string
-    secret_key  = string
-    region      = string
-  })
-
-  default = {
-    project     = ""
-    environment = ""
-    access_key  = ""
-    secret_key  = ""
-    region      = ""
-  }
-}
-
 variable "MaquinaVirtualEC2" {
   type = object({
     NomeInstancias           = list(string)
@@ -63,11 +45,6 @@ variable "MaquinaVirtualEC2" {
     error_message = "O formato do tipo da instância EC2 não é válido. \nDeve seguir o padrão de letras minúsculas, números e um ponto, com dois ou mais caracteres em cada lado."
   }
 
-  /* validation {
-    condition     = length(var.MaquinaVirtualEC2.NomeInstancias) == 0 || 
-    error_message = "A lista de instancias não pode estar vazia"
-  } */
-
   validation {
     condition     = length(var.MaquinaVirtualEC2.NomeInstancias) == 0 || alltrue([for name in var.MaquinaVirtualEC2.NomeInstancias : length(name) >= 3 && length(name) <= 128])
     error_message = "Cada nome deve ter entre 3 e 128 caracteres"
@@ -76,11 +53,11 @@ variable "MaquinaVirtualEC2" {
 
 variable "ArmazenamentoS3" {
   type = object({
-       NomeBuckets = list(string)
+    NomeBuckets = list(string)
   })
 
   default = {
-        NomeBuckets = []
+    NomeBuckets = []
   }
 
   validation {
@@ -114,7 +91,6 @@ variable "ServicoBancoRelacional" {
   })
 
   default = {
-    #create               = false
     NomeBancos           = []
     ArmazenamentoAlocado = 0
     Mecanismo            = ""
@@ -179,39 +155,29 @@ variable "BancoAthena" {
   }
 }
 
-variable "app_runner" {
+variable "AplicacaoContainer" {
   type = object({
-    create           = bool
-    service_names    = list(string)
-    image_identifier = string
-    port             = string
+    NomeAplicacoes  = list(string)
+    ImagemContainer = string
+    Porta           = string
+    TipoRepositorio = string
   })
 
   default = {
-    create           = false
-    service_names    = ["app"]
-    image_identifier = ""
-    port             = ""
+    NomeAplicacoes  = []
+    ImagemContainer = ""
+    Porta           = ""
+    TipoRepositorio = ""
   }
 
   validation {
-    condition     = length(var.app_runner.service_names) > 0
-    error_message = "A lista de runner não pode estar vazia"
-  }
-
-  validation {
-    condition     = alltrue([for name in var.app_runner.service_names : length(name) >= 3 && length(name) <= 40])
+    condition     = length(var.AplicacaoContainer.NomeAplicacoes) == 0 || alltrue([for name in var.AplicacaoContainer.NomeAplicacoes : length(name) >= 3 && length(name) <= 40])
     error_message = "Cada nome deve ter entre 3 e 40 caracteres"
   }
 
   validation {
-    condition     = alltrue([for name in var.app_runner.service_names : can(regex("^[a-zA-Z0-9][a-zA-Z0-9_-]*$", name))])
+    condition     = length(var.AplicacaoContainer.NomeAplicacoes) == 0 || alltrue([for name in var.AplicacaoContainer.NomeAplicacoes : can(regex("^[a-zA-Z0-9][a-zA-Z0-9_-]*$", name))])
     error_message = "Os nomes dos runner devem conter apenas letras minúsculas, números e os caracteres: '-' e '_'; também não deve iniciar com '-' ou '_'"
-  }
-
-  validation {
-    condition     = length(var.app_runner.service_names) > 0 && length(var.app_runner.service_names) <= 30
-    error_message = "O número de runner deve ser entre 1 a 30"
   }
 }
 
@@ -223,11 +189,6 @@ variable "ServicoAplicacaoBeanstalk" {
   default = {
     NomeAplicacoes = []
   }
-
-  /* validation {
-    condition     = length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) > 0
-    error_message = "A lista de application não pode estar vazia"
-  } */
 
   validation {
     condition     = length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) == 0 || alltrue([for name in var.ServicoAplicacaoBeanstalk.NomeAplicacoes : can(regex("^[a-zA-Z0-9_-]*$", name))])
@@ -264,11 +225,6 @@ variable "GrupoAutoScalarEC2" {
     Regiao                   = ""
   }
 
-  /* validation {
-    condition     = var.GrupoAutoScalarEC2.desired_capacity >= 0 && var.GrupoAutoScalarEC2.desired_capacity <= 32
-    error_message = "O número de instancias em execução no Grupo AutoScaling deve ser entre 0 a 32 instancias, forneça um valor diferente para desired_capacity"
-  } */
-
   validation {
     condition     = length(var.GrupoAutoScalarEC2.NomeGrupo) == 0 || (var.GrupoAutoScalarEC2.MaximoInstancia >= 0 && var.GrupoAutoScalarEC2.MaximoInstancia <= 32)
     error_message = "O número máximo de instancias do Grupo AutoScaling deve ser entre 0 a 32 instancias"
@@ -278,9 +234,4 @@ variable "GrupoAutoScalarEC2" {
     condition     = length(var.GrupoAutoScalarEC2.NomeGrupo) == 0 || (var.GrupoAutoScalarEC2.MinimoInstancia >= 0 && var.GrupoAutoScalarEC2.MinimoInstancia <= var.GrupoAutoScalarEC2.MaximoInstancia)
     error_message = "O número mínimo de instancias do Grupo AutoScaling deve ser maior que 0 e menor que o número máximo"
   }
-
-  /* validation {
-    condition     = var.GrupoAutoScalarEC2.desired_capacity >= var.GrupoAutoScalarEC2.min_size && var.GrupoAutoScalarEC2.desired_capacity <= var.GrupoAutoScalarEC2.max_size
-    error_message = "O número mínimo de instancias em execução do Grupo AutoScaling deve estar entre o número mínimo e máximo"
-  } */
 }

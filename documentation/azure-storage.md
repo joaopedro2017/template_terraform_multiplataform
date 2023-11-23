@@ -6,9 +6,6 @@
 
 É uma parte fundamental do serviço de armazenamento em nuvem oferecido pela Microsoft Azure. Ele é usado para armazenar objetos, que podem ser arquivos, documentos, imagens, vídeos e dados diversos. Um container é um contêiner lógico que permite organizar e gerenciar objetos relacionados de maneira eficiente. Os containers são um componente fundamental da plataforma de armazenamento em nuvem da Microsoft Azure e são altamente versáteis, adequados para atender a diversas necessidades de armazenamento de dados em nuvem.
 
-
-
-
 Exemplo de uso:
 ```csharp
 ContainerArmazenamento = {

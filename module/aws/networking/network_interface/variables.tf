@@ -6,10 +6,6 @@ variable "private_ips" {
   type = list(string)
 }
 
-variable "project" {
-  type = string
-}
-
-variable "environment" {
+variable "nic_name" {
   type = string
 }

@@ -10,6 +10,4 @@ module "rds_database" {
   parameter_group_name = var.ServicoBancoRelacional["GrupoParametro"]
   instance_class       = var.ServicoBancoRelacional["TipoInstancia"]
   db_subnet_group_name = module.db_subnet_group[0].name
-  project              = var.aws_authentication["project"]
-  environment          = var.aws_authentication["environment"]
 }

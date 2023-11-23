@@ -1,5 +1,5 @@
 module "windows_function_app" {
-  source              = "../../azure/compute/windows_function_app"
+  source              = "../../azure/webserver/windows_function_app"
   count               = length(var.FunctionWebWindows.NomeFunctions) > 0 && length(var.FunctionWebWindows.NomeInstancia) > 0 ? 1 : 0
   function_names      = var.FunctionWebWindows["NomeFunctions"]
   plan_name           = var.FunctionWebWindows["NomeInstancia"]
@@ -11,7 +11,7 @@ module "windows_function_app" {
 }
 
 module "linux_function_app" {
-  source              = "../../azure/compute/linux_function_app"
+  source              = "../../azure/webserver/linux_function_app"
   count               = length(var.FunctionWebLinux.NomeFunctions) > 0 && length(var.FunctionWebLinux.NomeInstancia) > 0 ? 1 : 0
   function_names      = var.FunctionWebLinux["NomeFunctions"]
   plan_name           = var.FunctionWebLinux["NomeInstancia"]

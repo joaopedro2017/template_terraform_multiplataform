@@ -3,7 +3,6 @@ resource "aws_network_interface" "nic" {
   private_ips = var.private_ips
 
   tags = {
-    Name        = "${var.project}-${var.environment}-nic"
-    Environment = var.environment
+    Name = "${var.nic_name}-nic"
   }
 }
