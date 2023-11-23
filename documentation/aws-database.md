@@ -7,7 +7,6 @@
 
 O argumento "Mecanismo" determinará qual banco relacional será provisionado, na sequência temos um exemplo do bloco de argumentos e após os detalhes de cada argumento.
 
-
 Exemplo de uso:
 ```csharp
   ServicoBancoRelacional = {
@@ -38,9 +37,6 @@ Regiao | É uma área geográfica onde os data centers e infraestrutura de servi
 ### Database Athena
 
 É um serviço de consulta interativa e análise de dados da Amazon Web Services (AWS) que permite que você execute consultas SQL em dados armazenados no Amazon S3, sem a necessidade de carregar ou transformar esses dados em um banco de dados tradicional. Embora o Athena não seja um "banco de dados" no sentido convencional, ele é uma ferramenta poderosa para análise de dados em larga escala e é amplamente utilizado para explorar, consultar e obter insights de grandes conjuntos de dados armazenados no Amazon S3.
-
-
-
 
 Exemplo de uso:
 ```csharp

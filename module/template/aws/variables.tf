@@ -199,11 +199,6 @@ variable "ServicoAplicacaoBeanstalk" {
     condition     = length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) == 0 || (alltrue([for name in var.ServicoAplicacaoBeanstalk.NomeAplicacoes : length(name) >= 3 && length(name) <= 100]))
     error_message = "Cada nome deve ter entre 3 e 100 caracteres"
   }
-
-  validation {
-    condition     = length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) == 0 || (length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) > 0 && length(var.ServicoAplicacaoBeanstalk.NomeAplicacoes) <= 30)
-    error_message = "O número de application deve ser entre 1 a 30"
-  }
 }
 
 variable "GrupoAutoScalarEC2" {
