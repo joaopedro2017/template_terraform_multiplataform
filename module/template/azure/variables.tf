@@ -194,6 +194,16 @@ variable "AplicativoWebWindows" {
   }
 
   validation {
+    condition     = length(var.AplicativoWebWindows.NomeAplicativos) == 0 || alltrue([for name in var.AplicativoWebWindows.NomeInstancia : length(name) >= 1 && length(name) <= 60])
+    error_message = "O nome da instancia deve ter entre 1 e 60 caracteres."
+  }
+
+  validation {
+    condition     = length(var.AplicativoWebWindows.NomeAplicativos) == 0 || can(regex("^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$", var.AplicativoWebWindows.NomeInstancia))
+    error_message = "O nome da instancia deve conter apenas letras minúsculas, maiscúlas, números e o caractere '-'"
+  }
+
+  validation {
     condition     = length(var.AplicativoWebWindows.NomeAplicativos) == 0 || (length(distinct(var.AplicativoWebWindows["NomeAplicativos"])) == length(var.AplicativoWebWindows["NomeAplicativos"]))
     error_message = "A lista de Apps contém valores duplicados."
   }
@@ -231,6 +241,16 @@ variable "AplicativoWebLinux" {
     TamanhoComputacional = ""
     GrupoRecurso         = ""
     Regiao               = ""
+  }
+
+  validation {
+    condition     = length(var.AplicativoWebLinux.NomeAplicativos) == 0 || alltrue([for name in var.AplicativoWebLinux.NomeInstancia : length(name) >= 1 && length(name) <= 60])
+    error_message = "O nome da instancia deve ter entre 1 e 60 caracteres."
+  }
+
+  validation {
+    condition     = length(var.AplicativoWebLinux.NomeAplicativos) == 0 || can(regex("^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$", var.AplicativoWebLinux.NomeInstancia))
+    error_message = "O nome da instancia deve conter apenas letras minúsculas, maiscúlas, números e o caractere '-'"
   }
 
   validation {
@@ -276,6 +296,16 @@ variable "FunctionWebWindows" {
   }
 
   validation {
+    condition     = length(var.FunctionWebWindows.NomeAplicativos) == 0 || alltrue([for name in var.FunctionWebWindows.NomeInstancia : length(name) >= 1 && length(name) <= 60])
+    error_message = "O nome da instancia deve ter entre 1 e 60 caracteres."
+  }
+
+  validation {
+    condition     = length(var.FunctionWebWindows.NomeAplicativos) == 0 || can(regex("^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$", var.FunctionWebWindows.NomeInstancia))
+    error_message = "O nome da instancia deve conter apenas letras minúsculas, maiscúlas, números e o caractere '-'"
+  }
+
+  validation {
     condition     = length(var.FunctionWebWindows.NomeFunctions) == 0 || length(distinct(var.FunctionWebWindows["NomeFunctions"])) == length(var.FunctionWebWindows["NomeFunctions"])
     error_message = "A lista de Apps contém valores duplicados."
   }
@@ -298,6 +328,11 @@ variable "FunctionWebWindows" {
   validation {
     condition     = length(var.FunctionWebWindows.NomeFunctions) == 0 || (length(var.FunctionWebWindows.ContaArmazenamento) >= 3 && length(var.FunctionWebWindows.ContaArmazenamento) <= 24)
     error_message = "O nome do Storage para a Function deve ter entre 3 e 24 caracteres."
+  }
+
+  validation {
+    condition     = length(var.FunctionWebWindows.NomeFunctions) == 0 || can(regex("^[a-z0-9]*$", var.FunctionWebWindows.ContaArmazenamento))
+    error_message = "O nome da conta de armazenamento deve conter apenas letras minúsculas e números."
   }
 }
 
@@ -323,6 +358,16 @@ variable "FunctionWebLinux" {
   }
 
   validation {
+    condition     = length(var.FunctionWebLinux.NomeAplicativos) == 0 || alltrue([for name in var.FunctionWebLinux.NomeInstancia : length(name) >= 1 && length(name) <= 60])
+    error_message = "O nome da instancia deve ter entre 1 e 60 caracteres."
+  }
+
+  validation {
+    condition     = length(var.FunctionWebLinux.NomeAplicativos) == 0 || can(regex("^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$", var.FunctionWebLinux.NomeInstancia))
+    error_message = "O nome da instancia deve conter apenas letras minúsculas, maiscúlas, números e o caractere '-'"
+  }
+
+  validation {
     condition     = length(var.FunctionWebLinux.NomeFunctions) == 0 || length(distinct(var.FunctionWebLinux["NomeFunctions"])) == length(var.FunctionWebLinux["NomeFunctions"])
     error_message = "A lista de Apps contém valores duplicados."
   }
@@ -345,6 +390,11 @@ variable "FunctionWebLinux" {
   validation {
     condition     = length(var.FunctionWebLinux.NomeFunctions) == 0 || (length(var.FunctionWebLinux.ContaArmazenamento) >= 3 && length(var.FunctionWebLinux.ContaArmazenamento) <= 24)
     error_message = "O nome do Storage para a Function deve ter entre 3 e 24 caracteres."
+  }
+
+  validation {
+    condition     = length(var.FunctionWebLinux.NomeFunctions) == 0 || can(regex("^[a-z0-9]*$", var.FunctionWebLinux.ContaArmazenamento))
+    error_message = "O nome da conta de armazenamento deve conter apenas letras minúsculas e números."
   }
 }
 
@@ -381,34 +431,22 @@ variable "ServidorMSSql" {
   }
 
   validation {
-    condition = length(var.ServidorMSSql.NomeBancos) == 0 || can(
-      regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorMSSql.NomeServidor
-    ))
+    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || can(regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorMSSql.NomeServidor))
     error_message = "O nome do Servidor deve conter apenas letras minúsculas, números e o caratere '-'"
   }
 
   validation {
-    condition = length(var.ServidorMSSql.NomeBancos) == 0 || length(
-      distinct(var.ServidorMSSql["NomeBancos"])
-      ) == length(
-      var.ServidorMSSql["NomeBancos"]
-    )
+    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || length(distinct(var.ServidorMSSql["NomeBancos"])) == length(var.ServidorMSSql["NomeBancos"])
     error_message = "A lista de bancos contém valores duplicados."
   }
 
   validation {
-    condition = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([
-      for name in var.ServidorMSSql.NomeBancos :
-      length(name) >= 1 && length(name) <= 128
-    ])
+    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([for name in var.ServidorMSSql.NomeBancos : length(name) >= 1 && length(name) <= 128])
     error_message = "Os nomes dos Bancos SQL devem ter entre 1 e 128 caracteres."
   }
 
   validation {
-    condition = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([
-      for name in var.ServidorMSSql.NomeBancos :
-      can(regex("^[a-z0-9_-]*$", name)) ## && !can(regex("[ <>*%&:\\/?]$", name))
-    ])
+    condition     = length(var.ServidorMSSql.NomeBancos) == 0 || alltrue([for name in var.ServidorMSSql.NomeBancos : can(regex("^[a-z0-9_-]*$", name))])
     error_message = "Os nomes dos bancos devem conter apenas letras minúsculas, números e os caractere '-' e '_'"
   }
 }
@@ -447,6 +485,11 @@ variable "ServidorMariaDB" {
   validation {
     condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || (length(var.ServidorMariaDB.NomeServidor) >= 3 && length(var.ServidorMariaDB.NomeServidor) <= 63)
     error_message = "O nome do Servidor devem ter entre 3 e 63 caracteres."
+  }
+
+  validation {
+    condition     = length(var.ServidorMariaDB.NomeBancos) == 0 || can(regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorMariaDB.NomeServidor))
+    error_message = "O nome do Servidor deve conter apenas letras minúsculas, números e o caratere '-'"
   }
 
   validation {
@@ -497,6 +540,16 @@ variable "ServidorMySQL" {
   }
 
   validation {
+    condition     = length(var.ServidorMySQL.NomeBancos) == 0 || (length(var.ServidorMySQL.NomeServidor) >= 3 && length(var.ServidorMySQL.NomeServidor) <= 63)
+    error_message = "O nome do Servidor devem ter entre 3 e 63 caracteres."
+  }
+
+  validation {
+    condition     = length(var.ServidorMySQL.NomeBancos) == 0 || can(regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorMySQL.NomeServidor))
+    error_message = "O nome do Servidor deve conter apenas letras minúsculas, números e o caratere '-'"
+  }
+
+  validation {
     condition     = length(var.ServidorMySQL.NomeBancos) == 0 || length(distinct(var.ServidorMySQL["NomeBancos"])) == length(var.ServidorMySQL["NomeBancos"])
     error_message = "A lista de bancos contém valores duplicados."
   }
@@ -541,6 +594,16 @@ variable "ServidorPostgreSQL" {
     SenhaAdministrador     = ""
     GrupoRecurso           = ""
     Regiao                 = ""
+  }
+
+  validation {
+    condition     = length(var.ServidorPostgreSQL.NomeBancos) == 0 || (length(var.ServidorPostgreSQL.NomeServidor) >= 3 && length(var.ServidorPostgreSQL.NomeServidor) <= 63)
+    error_message = "O nome do Servidor devem ter entre 3 e 63 caracteres."
+  }
+
+  validation {
+    condition     = length(var.ServidorPostgreSQL.NomeBancos) == 0 || can(regex("^[a-z0-9]+(-[a-z0-9]+)*$", var.ServidorPostgreSQL.NomeServidor))
+    error_message = "O nome do Servidor deve conter apenas letras minúsculas, números e o caratere '-'"
   }
 
   validation {

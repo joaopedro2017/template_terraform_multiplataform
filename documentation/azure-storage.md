@@ -11,11 +11,10 @@ Exemplo de uso:
 ContainerArmazenamento = {
     NomeContainers     = ["container1", "container2"]
     ContaArmazenamento = "storagetest"
-    GrupoRecurso       = local.AzureGrupoRecurso
-    Regiao             = local.AzureRegiao
+    GrupoRecurso       = "uniacademia"
+    Regiao             = "eastus2"
 }
 ```
-
 
 Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
@@ -23,6 +22,3 @@ NomeContainers     | Preencha a lista com os nomes dos containers  | - Os nomes 
 ContaArmazenamento |  É um serviço da Microsoft Azure que fornece uma solução de armazenamento em nuvem altamente escalável e durável.  | - ContaArmazenamento deve ter entre 3 a 24 caracteres <br> - ContaArmazenamento deve conter apenas letras minúsculas e números
 GrupoRecurso	| O nome do grupo de recursos do Azure onde os recursos serão criados	| - É necessário definir um grupo de recursos para organizar e gerenciar os recursos
 Regiao	| A região do Azure onde os Azure Container e Azure Storage serão implantadoss	| - Escolha a região geográfica onde os recursos serão hospedados. Isso pode afetar o desempenho e a disponibilidade.
-
-
-

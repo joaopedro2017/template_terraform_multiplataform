@@ -6,7 +6,6 @@
 
 A criação e gerenciamento de máquinas virtuais (VMs) no Azure, incluindo ambientes Linux e Windows. Ele inclui orientações para criar VMs, configurar conectividade e segurança, gerenciar recursos, otimizar o desempenho e integrar serviços adicionais do Azure. O objetivo é capacitar os usuários a aproveitar ao máximo as VMs na plataforma de nuvem Azure, independentemente do sistema operacional. Abaixo segue o modelo do bloco de variáveis do Windows e Lixux e na sequência a tabela com informações sobre os atributos.
 
-
 Exemplo de uso:
 ```csharp
 MaquinaVirtualWindows = {
@@ -18,8 +17,8 @@ MaquinaVirtualWindows = {
   TamanhoComputacional     = "Standard_B1s"
   UsuarioAdministrador     = "<usuario>"
   SenhaAdministrador       = "<senha>"
-  GrupoRecurso             = local.GrupoRecurso
-  Regiao                   = local.Regiao
+  GrupoRecurso             = "uniacademia"
+  Regiao                   = "eastus2"
 }
 
 MaquinaVirtualLinux = { 
@@ -31,8 +30,8 @@ MaquinaVirtualLinux = {
   TamanhoComputacional     = "Standard_B1s"
   UsuarioAdministrador     = "<usuario>"
   SenhaAdministrador       = "<senha>"
-  GrupoRecurso             = local.GrupoRecurso
-  Regiao                   = local.Regiao
+  GrupoRecurso             = "uniacademia"
+  Regiao                   = "eastus2"
 }
 ```
 
@@ -43,7 +42,7 @@ ImagemFornecedor	| O fornecedor da imagem da máquina virtual| 	- No Azure, as i
 ImagemSistemaOperacional| 	O sistema operacional da imagem da máquina virtual	| - Pode ser "UbuntuServer" para sistemas Linux ou "WindowsServer" para sistemas Windows.
 ImagemDistribuicao	| A distribuição específica do sistema operacional	| - Para sistemas Linux, é comum usar "18.04-LTS", enquanto para sistemas Windows, "2016-Datacenter" é uma opção.
 ImagemVersao	| A versão da imagem a ser utilizada	| - "latest" representa a versão mais recente disponível da imagem.
-TamanhoComputacional| 	O tamanho da VM	| - "Standard_B1s" é um tamanho básico de VM que pode ser ajustado conforme a necessidade. <br> - Consulte outros valores em [Tamanhos das máquinas virtuais no Azure](https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes)
+TamanhoComputacional| 	O tamanho da VM, em termo de memória RAM e CPU	| - "Standard_B1s" é um tamanho básico de VM que pode ser ajustado conforme a necessidade. <br> - Consulte outros valores em [Tamanhos das máquinas virtuais no Azure](https://learn.microsoft.com/pt-br/azure/virtual-machines/sizes)
 UsuarioAdministrador	| O nome de usuário do administrador para fazer login na VM	| - É importante definir um nome de usuário que será usado para acessar a máquina virtual.
 SenhaAdministrador	| A senha do administrador para fazer login na VM	| - Certifique-se de que a senha seja forte e segura para garantir a segurança da VM.
 GrupoRecurso	| O nome do grupo de recursos do Azure onde a VM será criada	| - É necessário definir um grupo de recursos para organizar e gerenciar os recursos relacionados à VM.
@@ -68,8 +67,8 @@ ConjuntoEscalarMaquinaVirtualWindows = {
   TamanhoComputacional       = "Standard_B1s"
   UsuarioAdministrador       = "<usuario>"
   SenhaAdministrador         = "<senha>"
-  GrupoRecurso               = local.GrupoRecurso
-  Regiao                     = local.Regiao
+  GrupoRecurso               = "uniacademia"
+  Regiao                     = "eastus2"
 }
 
 ConjuntoEscalarMaquinaVirtualLinux = {
@@ -82,8 +81,8 @@ ConjuntoEscalarMaquinaVirtualLinux = {
   TamanhoComputacional       = "Standard_B1s"
   UsuarioAdministrador       = "<usuario>"
   SenhaAdministrador         = "<senha>"
-  GrupoRecurso               = local.GrupoRecurso
-  Regiao                     = local.Regiao
+  GrupoRecurso               = "uniacademia"
+  Regiao                     = "eastus2"
 }
 ```
 

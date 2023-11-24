@@ -8,15 +8,14 @@
 
 O argumento "ImagemSistemaOperacional" determinará qual o sistema operacional que será utilizado. Na sequência temos o bloco de exemplo sobre o provisionado e mais abaixo uma tabela sobre os argumentos necessários.
 
-
 Exemplo de uso:
 ```csharp
 MaquinaVirtualEC2 = {
     NomeInstancias           = ["vmteste1", "vmteste2"]
     ImagemSistemaOperacional = "ami-07b36ea9852e986ad"
     TipoInstancia            = "t2.micro"    
-    NomeUsuario              = "foo"
-    SenhaUsuario             = "foobarbaz"
+    NomeUsuario              = "<nomeUsuario>"
+    SenhaUsuario             = "<senhaUsuario>"
     Regiao                   = "us-east-2"
   }
 ```
@@ -35,7 +34,6 @@ Regiao | É uma área geográfica onde os data centers e infraestrutura de servi
 É um serviço da Amazon Web Services (AWS) que permite dimensionar automaticamente o número de instâncias do Amazon Elastic Compute Cloud (EC2) com base nas necessidades da sua aplicação.
 
 Na tabela a seguir, serão apresentados os argumentos para os recursos de <b>Elastic Compute Cloud (EC2) Auto Scaling</b>. Alguns dos argumentos, como ImagemSistemaOperacional, TipoInstancia e Regiao, já foram mencionados anteriormente. Portanto, focaremos nos argumentos restantes:
-
 
 Exemplo de uso:
 ```csharp

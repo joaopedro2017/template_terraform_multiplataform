@@ -15,10 +15,10 @@ Exemplo de uso:
     Mecanismo            = "mysql"
     MecanismoVersao      = "5.7"
     TipoInstancia        = "db.t3.micro"
-    NomeUsuario          = "foo"
-    SenhaUsuario         = "foobarbaz"
+    NomeUsuario          = "<nomeUsuario>"
+    SenhaUsuario         = "<senhaUsuario>"
     GrupoParametro       = "default.mysql5.7"
-    Regiao               = local.AWSRegiao
+    Regiao               = "us-east-2"
   }
 ```
 

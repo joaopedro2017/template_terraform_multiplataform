@@ -15,6 +15,3 @@ ArmazenamentoS3 = {
 Argumentos | Especificações	| Restrições
 -----------| ------------| ----------------------
 NomeBuckets | Preencha a lista com os nomes dos buckets | - Cada nome deve ter entre 3 a 63 caracteres <br> - Os nomes dos bucket devem conter apenas letras minúsculas, números e o caractere '-' e não podem começar ou terminar com '-'
-
-
-
